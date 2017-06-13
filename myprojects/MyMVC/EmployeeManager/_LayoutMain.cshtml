@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>@Page.Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="~/Content/lib/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/lib/css/font-awesome.min.css" />
+    <!-- 定义一个区块，第一个参数是区块的名称，第二个参数是区块是否必须存在 -->
+    @RenderSection("style",false)
+
+    <script src="~/Scripts/lib/jquery.min.js"></script>
+    <script src="~/Scripts/lib/bootstrap.min.js"></script>
+    @RenderSection("js", false)
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- 下面的语句不会出现在html中，作用是将模版是本页面的视图页中的内容添加到该位置 -->
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

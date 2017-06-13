@@ -1,0 +1,63 @@
+﻿@{
+    Page.Title = "员工查询";
+    Layout = "~/_LayoutMain.cshtml";
+}
+@foreach (var emp in Model.VwList)
+{
+    @emp.Ename<span>-</span>@emp.DeptName<span>-</span>@emp.Sex<br/>
+}
+
+<!-- 字典查询 -->
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>工资</th>
+            <th>性别</th>
+            <th>部门</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model.DicList)
+        {
+            <tr>
+                <td>@emp["eid"]</td>
+                <td>@emp["ename"]</td>
+                <td>@emp["salary"]</td>
+                <td>@emp["sex"]</td>
+                <td>@emp["deptname"]</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+<!-- 分页查询 -->
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>工资</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model.PageList)
+        {
+            <tr>
+                <td>@emp["eid"]</td>
+                <td>@emp["ename"]</td>
+                <td>@emp["salary"]</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="text-center">
+    <form action="~/Employee/Page" method="post">
+        分页大小 :<input type="text" name="PageSize" value="@Model.PageSize" />
+        跳转到<input type="text" name="Page" value="@Model.Page" />
+        <input type="submit" value="GO" />
+    </form>
+</div>

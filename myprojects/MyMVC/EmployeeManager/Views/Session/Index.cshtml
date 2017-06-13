@@ -1,0 +1,12 @@
+﻿@{
+    Page.Title = "Index";
+    Layout = "~/_LayoutMain.cshtml";
+}
+
+<form action="~/Session/" method="post">
+    请输入：<input type="text" name="uname" />
+    <input type="submit" value="提交" />
+</form>
+<hr />
+浏览器级别变量：@Session["LoginUser"]
+<a href="~/Session/One">对照页面</a>
