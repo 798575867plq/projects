@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/_LayoutMain.cshtml";
+    Page.Title = "Other";
+}
+
+@section js{
+    <script type="text/javascript" src="~/Scripts/app/One/Other.js"></script>   
+    <script type="text/javascript">
+        alert("哈哈哈");
+    </script> 
+}
+
+<h2 class="bg-primary text-center">@ViewBag.Info</h2>
+<h1 class="color-red">
+    动态加载区块对照组
+    <span id="spanJs">我也是对照组</span>
+</h1>
+<h1>
+    Model的数据：
+    <!-- Model对象就是View里面参数对应的对象 -->
+    @Model.Id--@Model.Name
+</h1>

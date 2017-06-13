@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/_LayoutMain.cshtml";
+    Page.Title = "表单提交";
+}
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div class="text-center">
+            <h1>用户登录</h1>
+        </div>
+        <form method="post" action="~/Form/Login" class="form">
+            <div class="form-group">
+                <!-- 表单元素要在form中且要有name,且和Model中的字段名称匹配 -->
+                <input type="text" name="Name" class="form-control" placeholder="请输入用户名" value="@Model.Name" />
+            </div>
+            <div class="form-group">
+                <input type="password" name="Password" class="form-control" placeholder="请输入密码" value="@Model.Password" />
+            </div>
+            <div class="text-center">
+                <input type="submit" value="登录" class="btn btn-info" />
+            </div>
+        </form>
+        <h1 class="text-center text-danger">
+            @Model.Error
+        </h1>
+        <h1>
+            初始化的模型数据演示<br />
+            @foreach (var item in Model.Types)
+            {
+                @item.Tid @item.Tname <br />
+            }
+        </h1>
+    </div>
+    <div class="col-sm-4"></div>
+</div>

@@ -1,0 +1,66 @@
+﻿@{
+    Page.Title = "Index";
+    Layout = "~/_LayoutMain.cshtml";
+}
+
+@section style{
+    <style type="text/css">
+        iframe {
+            width:100%;
+            border:0px;
+        }
+    </style>
+}
+@section js{
+    <script type="text/javascript">
+        function ToPage(pn) {
+            $("#pn").val(pn);
+            $("#pform").submit();
+        }
+    </script>
+}
+<form action="~/Default/" method="get" id="pform">
+    <input type="hidden" name="PageInfo.PageNumber" id="pn" />
+</form>
+
+<iframe src="~/User/"></iframe>
+<div class="jumbotron">
+    <h1><i class="fa fa-user-o"></i>彭量琼的微博</h1>
+</div>
+<div class="text-center">
+    @foreach (var m in Model.MList)
+    {
+        <div>
+            <hr />
+            <span>@m.Nickname</span>
+            在
+            <span>@m.Created</span>
+            发表
+            <a href="~/Message/Info?Info.Mid=@m.Mid">@m.Title</a>
+        </div>
+    }
+
+    <nav>
+        <ul class="pager">
+            <li>
+                <a href="javascript:void(0);" onclick="ToPage(1)">第一页</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" onclick="ToPage(@Model.PageInfo.PageNumber-1)">上一页</a>
+            </li>
+            <li>
+                <span>
+                    <span>总记录：</span>@Model.PageInfo.Count
+                    <span>总页数：</span>@Model.PageInfo.PageCount
+                    <span>页：</span>@Model.PageInfo.PageNumber
+                </span>
+            </li>
+            <li>
+                <a href="javascript:void(0);" onclick="ToPage(@Model.PageInfo.PageNumber+1)">下一页</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" onclick="ToPage(@Model.PageInfo.PageCount)">最后一页</a>
+            </li>
+        </ul>
+    </nav>
+</div>

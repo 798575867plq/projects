@@ -1,0 +1,15 @@
+﻿@{
+    //指定布局的模版页
+    Layout = "~/_LayoutMain.cshtml";   
+    //通过Page对象给布局页传递值
+    Page.Title = "第一个MVC"; 
+}
+@section style{
+    @*
+        定义区块的内容
+        section后面是要添加到模版页中指定区块的名称
+    *@
+    <link rel="stylesheet" href="~/Content/app/base.css" />    
+}
+<h2>第一个mvc视图页面-@ViewBag.Info</h2>
+<h1 class="color-red">动态加载区块对照组<span id="spanJs">我也是对照组</span></h1>
